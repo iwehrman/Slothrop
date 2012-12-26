@@ -1,0 +1,15 @@
+input_clause(ma,axiom,
+  [ ++equal(h(X,Y), f(X))
+  ]).
+
+input_clause(mb,axiom,
+  [ ++equal(h(X,Y), f(Y))
+  ]).
+
+input_clause(mc,axiom,
+  [ ++equal(g(X,Y), h(X,Y))
+  ]).
+
+input_clause(md,axiom,
+  [ ++equal(g(X,Y), a)
+  ]).

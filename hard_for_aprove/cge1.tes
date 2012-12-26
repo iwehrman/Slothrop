@@ -1,0 +1,20 @@
+[Y0,X0,Z1,Z0]
+g(trans(X0,Y0)) -> trans(g(X0),g(Y0))
+trans(f(X0),f(Y0)) -> f(trans(X0,Y0))
+trans(symm(X0),X0) -> refl
+trans(refl,X0) -> refl
+trans(g(refl),g(X0)) -> g(refl)
+trans(g(symm(X0)),g(X0)) -> g(refl)
+trans(f(X0),g(Y0)) -> trans(g(Y0),f(X0))
+trans(trans(X0,Y0),Z0) -> trans(X0,trans(Y0,Z0))
+trans(symm(X0),trans(X0,Z1)) -> refl
+trans(g(g(refl)),g(g(X0))) -> g(g(refl))
+trans(g(refl),trans(g(X0),Z1)) -> trans(g(refl),Z1)
+trans(g(g(symm(X0))),g(g(X0))) -> g(g(refl))
+trans(g(symm(trans(X0,Y0))),trans(g(X0),g(Y0))) -> g(refl)
+trans(g(f(X0)),g(g(Y0))) -> trans(g(g(Y0)),g(f(X0)))
+trans(g(symm(X0)),trans(g(X0),Z1)) -> trans(g(refl),Z1)
+trans(f(X0),trans(g(Y0),Z1)) -> trans(g(Y0),trans(f(X0),Z1))
+trans(g(f(X0)),g(f(Y0))) -> g(f(trans(X0,Y0)))
+trans(f(trans(X0,Y0)),Z1) -> trans(f(X0),trans(f(Y0),Z1))
+# MAYBE (382.423871994s)

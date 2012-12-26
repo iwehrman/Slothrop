@@ -1,0 +1,14 @@
+input_clause(assoc,axiom,
+  [ ++equal(f(X,f(Y,Z)), f(f(X,Y),Z)) ]).
+
+input_clause(inv, axiom,
+  [ ++equal(f(X,i(X)),e) ]).
+
+input_clause(id,axiom,
+  [ ++equal(f(X,e), X) ]).
+
+input_clause(id,conjecture,
+  [ ++equal(f(e,X), X) ]).
+
+input_clause(id,conjecture,
+  [ ++equal(i(f(Y,X)), f(i(X),i(Y))) ]).

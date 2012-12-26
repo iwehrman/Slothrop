@@ -1,0 +1,57 @@
+%------------------------------------------------------------------------------
+% File     : GRP202-1 : TPTP v3.2.0. Released v2.2.0.
+% Domain   : Group Theory (Loops)
+% Problem  : In Loops, Moufang-3 => Moufang-1.
+% Version  : [MP96] (equality) axioms.
+% English  : 
+
+% Refs     : [McC98] McCune (1998), Email to G. Sutcliffe
+%          : [Wos96] Wos (1996), OTTER and the Moufang Identity Problem
+%          : [MP96]  McCune & Padmanabhan (1996), Automated Deduction in Eq
+% Source   : [McC98]
+% Names    : MFL-3 [MP96]
+%          : - [Wos96]
+
+% Status   : Unsatisfiable
+% Rating   : 0.43 v3.1.0, 0.44 v2.7.0, 0.36 v2.6.0, 0.00 v2.2.1
+% Syntax   : Number of clauses     :   10 (   0 non-Horn;  10 unit;   1 RR)
+%            Number of atoms       :   10 (  10 equality)
+%            Maximal clause size   :    1 (   1 average)
+%            Number of predicates  :    1 (   0 propositional; 2-2 arity)
+%            Number of functors    :    9 (   4 constant; 0-2 arity)
+%            Number of variables   :   15 (   0 singleton)
+%            Maximal term depth    :    4 (   2 average)
+
+% Comments :
+%          : tptp2X -f oldtptp GRP202-1.p 
+%------------------------------------------------------------------------------
+input_clause(left_identity,axiom,
+    [++equal(multiply(identity,X),X)]).
+
+input_clause(right_identity,axiom,
+    [++equal(multiply(X,identity),X)]).
+
+input_clause(multiply_left_division,axiom,
+    [++equal(multiply(X,left_division(X,Y)),Y)]).
+
+input_clause(left_division_multiply,axiom,
+    [++equal(left_division(X,multiply(X,Y)),Y)]).
+
+input_clause(multiply_right_division,axiom,
+    [++equal(multiply(right_division(X,Y),Y),X)]).
+
+input_clause(right_division_multiply,axiom,
+    [++equal(right_division(multiply(X,Y),Y),X)]).
+
+input_clause(right_inverse,axiom,
+    [++equal(multiply(X,right_inverse(X)),identity)]).
+
+input_clause(left_inverse,axiom,
+    [++equal(multiply(left_inverse(X),X),identity)]).
+
+input_clause(moufang3,axiom,
+    [++equal(multiply(multiply(multiply(X,Y),X),Z),multiply(X,multiply(Y,multiply(X,Z))))]).
+
+input_clause(prove_moufang1,conjecture,
+    [--equal(multiply(multiply(a,multiply(b,c)),a),multiply(multiply(a,b),multiply(c,a)))]).
+%------------------------------------------------------------------------------

@@ -1,0 +1,20 @@
+[Z0,Z4,X3,Y0,Z1,X0,Y1,X1,X2]
+f(f(X3,i(X0)),X0) -> X3
+i(e) -> e
+f(X0,f(Y0,Z0)) -> f(f(X0,Y0),Z0)
+f(X0,i(X0)) -> e
+f(X0,e) -> X0
+f(f(X1,X0),i(X0)) -> X1
+f(e,X0) -> X0
+i(i(X0)) -> X0
+f(i(X0),X0) -> e
+f(i(f(Y1,Z1)),Y1) -> i(Z1)
+f(Z1,i(f(Y1,Z1))) -> i(Y1)
+i(f(i(X2),Z1)) -> f(i(Z1),X2)
+f(i(Z1),i(Y1)) -> i(f(Y1,Z1))
+f(f(X2,i(f(Y1,Z1))),Y1) -> f(X2,i(Z1))
+i(f(X3,i(X0))) -> f(X0,i(X3))
+f(i(f(f(X0,Y0),Z0)),X0) -> i(f(Y0,Z0))
+f(f(X2,Z1),i(f(Y1,Z1))) -> f(X2,i(Y1))
+f(i(f(X2,Z4)),Z1) -> i(f(f(i(Z1),X2),Z4))
+# MAYBE (99.9369621277s)

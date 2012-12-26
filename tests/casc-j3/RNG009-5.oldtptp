@@ -1,0 +1,59 @@
+%------------------------------------------------------------------------------
+% File     : RNG009-5 : TPTP v3.2.0. Released v1.0.0.
+% Domain   : Ring Theory
+% Problem  : If X*X*X = X then the ring is commutative
+% Version  : [Peterson & Stickel, 1981] (equality) axioms : 
+%            Reduced > Incomplete.
+% English  : Given a ring in which for all x, x * x * x = x, prove that 
+%            for all x and y, x * y = y * x.
+
+% Refs     : [PS81]  Peterson & Stickel (1981), Complete Sets of Reductions
+%          : [Ove90] Overbeek (1990), ATP competition announced at CADE-10
+%          : [Ove93] Overbeek (1993), The CADE-11 Competitions: A Personal 
+%          : [LM93]  Lusk & McCune (1993), Uniform Strategies: The CADE-11 
+%          : [Zha93] Zhang (1993), Automated Proofs of Equality Problems in
+% Source   : [Ove90]
+% Names    : CADE-11 Competition Eq-7 [Ove90]
+%          : THEOREM EQ-7 [LM93]
+%          : PROBLEM 7 [Zha93]
+
+% Status   : Unsatisfiable
+% Rating   : 0.50 v3.1.0, 0.44 v2.7.0, 0.36 v2.6.0, 0.17 v2.5.0, 0.25 v2.4.0, 0.00 v2.2.1, 0.67 v2.2.0, 0.71 v2.1.0, 1.00 v2.0.0
+% Syntax   : Number of clauses     :    9 (   0 non-Horn;   9 unit;   1 RR)
+%            Number of atoms       :    9 (   9 equality)
+%            Maximal clause size   :    1 (   1 average)
+%            Number of predicates  :    1 (   0 propositional; 2-2 arity)
+%            Number of functors    :    6 (   3 constant; 0-2 arity)
+%            Number of variables   :   17 (   0 singleton)
+%            Maximal term depth    :    3 (   2 average)
+
+% Comments : 
+%          : tptp2X -f oldtptp RNG009-5.p 
+%------------------------------------------------------------------------------
+input_clause(right_identity,axiom,
+    [++equal(add(X,additive_identity),X)]).
+
+input_clause(right_additive_inverse,axiom,
+    [++equal(add(X,additive_inverse(X)),additive_identity)]).
+
+input_clause(distribute1,axiom,
+    [++equal(multiply(X,add(Y,Z)),add(multiply(X,Y),multiply(X,Z)))]).
+
+input_clause(distribute2,axiom,
+    [++equal(multiply(add(X,Y),Z),add(multiply(X,Z),multiply(Y,Z)))]).
+
+input_clause(associative_addition,axiom,
+    [++equal(add(add(X,Y),Z),add(X,add(Y,Z)))]).
+
+input_clause(commutative_addition,axiom,
+    [++equal(add(X,Y),add(Y,X))]).
+
+input_clause(associative_multiplication,axiom,
+    [++equal(multiply(multiply(X,Y),Z),multiply(X,multiply(Y,Z)))]).
+
+input_clause(x_cubed_is_x,hypothesis,
+    [++equal(multiply(X,multiply(X,X)),X)]).
+
+input_clause(prove_commutativity,conjecture,
+    [--equal(multiply(a,b),multiply(b,a))]).
+%------------------------------------------------------------------------------

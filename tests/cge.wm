@@ -1,0 +1,31 @@
+NAME            CGE2
+
+MODE            COMPLETION
+
+SORTS           ANY
+
+SIGNATURE       trans: ANY ANY -> ANY 
+                symm: ANY -> ANY
+                f: ANY -> ANY
+                g: ANY -> ANY
+                refl: -> ANY
+		a: -> ANY
+		b: -> ANY
+
+
+ORDERING        %LPO
+		KBO
+
+                trans = 1, symm = 0, f = 1, g = 1, refl = 1, a = 1, b = 1		
+                symm > trans > f > g > refl > a > b
+
+VARIABLES       X,Y,Z : ANY
+
+EQUATIONS       trans(trans(X,Y), Z) = trans(X,trans(Y,Z))
+                trans(symm(X), X) =  refl
+                trans(refl,X) = X
+                trans(f(X), f(Y))  =  f(trans(X,Y))
+                trans(g(X), g(Y)) = g(trans(X,Y))
+                trans(f(X), g(Y)) = trans(g(Y), f(X))
+
+CONCLUSION      trans(f(refl), g(a))  =  f(a)

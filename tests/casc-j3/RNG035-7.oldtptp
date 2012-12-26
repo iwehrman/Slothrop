@@ -1,0 +1,61 @@
+%------------------------------------------------------------------------------
+% File     : RNG035-7 : TPTP v3.2.0. Released v1.0.0.
+% Domain   : Ring Theory
+% Problem  : If X*X*X*X = X then the ring is commutative
+% Version  : [LW91] (equality) axioms.
+% English  : Given a ring in which for all x, x * x * x * x = x, prove 
+%            that for all x and y, x * y = y * x.
+
+% Refs     : [LW91]  Lusk & Wos (1991), Benchmark Problems in Which Equalit
+% Source   : [LW91]
+% Names    : RT3 [LW91]
+
+% Status   : Unsatisfiable
+% Rating   : 0.79 v3.2.0, 0.86 v3.1.0, 0.67 v2.7.0, 0.73 v2.6.0, 0.50 v2.5.0, 0.25 v2.4.0, 0.33 v2.2.1, 1.00 v2.0.0
+% Syntax   : Number of clauses     :   12 (   0 non-Horn;  12 unit;   2 RR)
+%            Number of atoms       :   12 (  12 equality)
+%            Maximal clause size   :    1 (   1 average)
+%            Number of predicates  :    1 (   0 propositional; 2-2 arity)
+%            Number of functors    :    7 (   4 constant; 0-2 arity)
+%            Number of variables   :   19 (   0 singleton)
+%            Maximal term depth    :    4 (   2 average)
+
+% Comments : 
+%          : tptp2X -f oldtptp RNG035-7.p 
+%------------------------------------------------------------------------------
+input_clause(left_additive_identity,axiom,
+    [++equal(add(additive_identity,X),X)]).
+
+input_clause(right_additive_identity,axiom,
+    [++equal(add(X,additive_identity),X)]).
+
+input_clause(left_additive_inverse,axiom,
+    [++equal(add(additive_inverse(X),X),additive_identity)]).
+
+input_clause(right_additive_inverse,axiom,
+    [++equal(add(X,additive_inverse(X)),additive_identity)]).
+
+input_clause(associativity_for_addition,axiom,
+    [++equal(add(X,add(Y,Z)),add(add(X,Y),Z))]).
+
+input_clause(commutativity_for_addition,axiom,
+    [++equal(add(X,Y),add(Y,X))]).
+
+input_clause(associativity_for_multiplication,axiom,
+    [++equal(multiply(X,multiply(Y,Z)),multiply(multiply(X,Y),Z))]).
+
+input_clause(distribute1,axiom,
+    [++equal(multiply(X,add(Y,Z)),add(multiply(X,Y),multiply(X,Z)))]).
+
+input_clause(distribute2,axiom,
+    [++equal(multiply(add(X,Y),Z),add(multiply(X,Z),multiply(Y,Z)))]).
+
+input_clause(x_fourthed_is_x,hypothesis,
+    [++equal(multiply(X,multiply(X,multiply(X,X))),X)]).
+
+input_clause(a_times_b_is_c,conjecture,
+    [++equal(multiply(a,b),c)]).
+
+input_clause(prove_commutativity,conjecture,
+    [--equal(multiply(b,a),c)]).
+%------------------------------------------------------------------------------

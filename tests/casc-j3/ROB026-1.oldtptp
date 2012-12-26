@@ -1,0 +1,44 @@
+%------------------------------------------------------------------------------
+% File     : ROB026-1 : TPTP v3.2.0. Released v1.2.0.
+% Domain   : Robbins Algebra
+% Problem  : c + d = c => Boolean
+% Version  : [Win90] (equality) axioms.
+%            Theorem formulation : Denies Huntington's axiom.
+% English  : If there are elements c and d such that c+d=d, then the 
+%            algebra is Boolean.
+
+% Refs     : [HMT71] Henkin et al. (1971), Cylindrical Algebras
+%          : [Win90] Winker (1990), Robbins Algebra: Conditions that make a
+%          : [Wos94] Wos (1994), Two Challenge Problems
+% Source   : [Wos94]
+% Names    : - [Wos94]
+
+% Status   : Unsatisfiable
+% Rating   : 0.86 v3.1.0, 0.89 v2.7.0, 0.91 v2.6.0, 0.83 v2.5.0, 0.75 v2.4.0, 0.67 v2.3.0, 1.00 v2.0.0
+% Syntax   : Number of clauses     :    5 (   0 non-Horn;   5 unit;   2 RR)
+%            Number of atoms       :    5 (   5 equality)
+%            Maximal clause size   :    1 (   1 average)
+%            Number of predicates  :    1 (   0 propositional; 2-2 arity)
+%            Number of functors    :    6 (   4 constant; 0-2 arity)
+%            Number of variables   :    7 (   0 singleton)
+%            Maximal term depth    :    6 (   3 average)
+
+% Comments : Commutativity, associativity, and Huntington's axiom 
+%            axiomatize Boolean algebra.
+%          : tptp2X -f oldtptp ROB026-1.p 
+%------------------------------------------------------------------------------
+input_clause(commutativity_of_add,axiom,
+    [++equal(add(X,Y),add(Y,X))]).
+
+input_clause(associativity_of_add,axiom,
+    [++equal(add(add(X,Y),Z),add(X,add(Y,Z)))]).
+
+input_clause(robbins_axiom,axiom,
+    [++equal(negate(add(negate(add(X,Y)),negate(add(X,negate(Y))))),X)]).
+
+input_clause(identity_constant,hypothesis,
+    [++equal(add(c,d),c)]).
+
+input_clause(prove_huntingtons_axiom,conjecture,
+    [--equal(add(negate(add(a,negate(b))),negate(add(negate(a),negate(b)))),b)]).
+%------------------------------------------------------------------------------

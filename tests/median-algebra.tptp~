@@ -1,0 +1,10 @@
+input_clause(comm,axiom, [
+  ++equal(times(X,plus(Y,Z)), plus(times(X,Y),times(X,Z)))
+]).
+
+input_clause(comm,axiom, [
+  ++equal(times(plus(Y,Z),X), plus(times(Y,X),times(Z,X)))
+]).
+
+
+

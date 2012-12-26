@@ -1,0 +1,35 @@
+input_clause(assoc,axiom,[
+        ++equal( trans(trans(X,Y), Z), trans(X,trans(Y,Z)))
+]).
+
+input_clause(inv,axiom,[
+        ++equal(trans(symm(X), X),  refl)
+]).
+
+input_clause(unit,axiom,[
+        ++equal(trans(refl,X), X)
+]).
+
+input_clause(fendo,axiom,[
+        ++equal(trans(f(X), f(Y)), f(trans(X,Y)))
+]).
+
+input_clause(gendo,axiom,[
+        ++equal(trans(g(X), g(Y)), g(trans(X,Y)))
+]).
+
+input_clause(gendo,axiom,[
+        ++equal(trans(h(X), h(Y)), h(trans(X,Y)))
+]).
+
+input_clause(comm,axiom,[
+        ++equal(trans(f(X), g(Y)), trans(g(Y), f(X)))
+]).
+
+input_clause(comm,axiom,[
+        ++equal(trans(g(X), h(Y)), trans(h(Y), g(X)))
+]).
+
+input_clause(comm,axiom,[
+        ++equal(trans(h(X), f(Y)), trans(f(Y), h(X)))
+]).

@@ -1,0 +1,10 @@
+input_clause(comm,axiom, [
+  ++equal(plus(X,z), X)
+]).
+
+input_clause(comm,axiom, [
+  ++equal(s(plus(X,Y)), plus(X,s(Y)))
+]).
+
+
+

@@ -1,0 +1,51 @@
+%------------------------------------------------------------------------------
+% File     : BOO023-1 : TPTP v3.2.0. Released v2.2.0.
+% Domain   : Boolean Algebra
+% Problem  : Half of Padmanabhan's 6-basis with Pixley, part 1.
+% Version  : [MP96] (equality) axioms : Especial.
+% English  : Part 1 (of 3) of the proof that half of Padmanaban's self-dual
+%            independent 6-basis for Boolean Algebra, together with a Pixley
+%            polynomial, is a basis for Boolean algebra.
+
+% Refs     : [McC98] McCune (1998), Email to G. Sutcliffe
+%          : [MP96]  McCune & Padmanabhan (1996), Automated Deduction in Eq
+% Source   : [McC98]
+% Names    : DUAL-BA-2-a [MP96]
+
+% Status   : Unsatisfiable
+% Rating   : 0.50 v3.1.0, 0.33 v2.7.0, 0.36 v2.6.0, 0.17 v2.5.0, 0.00 v2.2.1
+% Syntax   : Number of clauses     :    8 (   0 non-Horn;   8 unit;   1 RR)
+%            Number of atoms       :    8 (   8 equality)
+%            Maximal clause size   :    1 (   1 average)
+%            Number of predicates  :    1 (   0 propositional; 2-2 arity)
+%            Number of functors    :    8 (   4 constant; 0-3 arity)
+%            Number of variables   :   15 (   2 singleton)
+%            Maximal term depth    :    5 (   2 average)
+
+% Comments :
+%          : tptp2X -f oldtptp BOO023-1.p 
+%------------------------------------------------------------------------------
+input_clause(multiply_add,axiom,
+    [++equal(multiply(add(X,Y),Y),Y)]).
+
+input_clause(multiply_add_property,axiom,
+    [++equal(multiply(X,add(Y,Z)),add(multiply(Y,X),multiply(Z,X)))]).
+
+input_clause(additive_inverse,axiom,
+    [++equal(add(X,inverse(X)),n1)]).
+
+input_clause(pixley_defn,axiom,
+    [++equal(pixley(X,Y,Z),add(multiply(X,inverse(Y)),add(multiply(X,Z),multiply(inverse(Y),Z))))]).
+
+input_clause(pixley1,axiom,
+    [++equal(pixley(X,X,Y),Y)]).
+
+input_clause(pixley2,axiom,
+    [++equal(pixley(X,Y,Y),X)]).
+
+input_clause(pixley3,axiom,
+    [++equal(pixley(X,Y,X),X)]).
+
+input_clause(prove_add_multiply_property,conjecture,
+    [--equal(add(a,multiply(b,c)),multiply(add(a,b),add(a,c)))]).
+%------------------------------------------------------------------------------

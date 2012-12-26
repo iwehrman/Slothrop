@@ -1,0 +1,98 @@
+%------------------------------------------------------------------------------
+% File     : GRP181-4 : TPTP v3.2.0. Bugfixed v1.2.1.
+% Domain   : Group Theory (Lattice Ordered)
+% Problem  : Distributivity of a lattice
+% Version  : [Fuc94] (equality) axioms : Augmented.
+% English  : 
+
+% Refs     : [Fuc94] Fuchs (1994), The Application of Goal-Orientated Heuri
+%          : [Sch95] Schulz (1995), Explanation Based Learning for Distribu
+% Source   : [Sch95]
+% Names    : p12x [Sch95]
+
+% Status   : Unsatisfiable
+% Rating   : 0.43 v3.1.0, 0.44 v2.7.0, 0.36 v2.6.0, 0.00 v2.2.1, 0.56 v2.2.0, 0.57 v2.1.0, 1.00 v2.0.0
+% Syntax   : Number of clauses     :   23 (   0 non-Horn;  23 unit;   4 RR)
+%            Number of atoms       :   23 (  23 equality)
+%            Maximal clause size   :    1 (   1 average)
+%            Number of predicates  :    1 (   0 propositional; 2-2 arity)
+%            Number of functors    :    8 (   4 constant; 0-2 arity)
+%            Number of variables   :   40 (   2 singleton)
+%            Maximal term depth    :    3 (   2 average)
+
+% Comments : ORDERING LPO inverse > product > greatest_lower_bound >
+%            least_upper_bound > identity > a > b > c
+%          : ORDERING LPO greatest_lower_bound > least_upper_bound > 
+%            inverse > product > identity > a > b > c
+%          : tptp2X -f oldtptp GRP181-4.p 
+% Bugfixes : v1.2.1 - Duplicate axioms in GRP004-2.ax removed.
+%------------------------------------------------------------------------------
+input_clause(left_identity,axiom,
+    [++equal(multiply(identity,X),X)]).
+
+input_clause(left_inverse,axiom,
+    [++equal(multiply(inverse(X),X),identity)]).
+
+input_clause(associativity,axiom,
+    [++equal(multiply(multiply(X,Y),Z),multiply(X,multiply(Y,Z)))]).
+
+input_clause(symmetry_of_glb,axiom,
+    [++equal(greatest_lower_bound(X,Y),greatest_lower_bound(Y,X))]).
+
+input_clause(symmetry_of_lub,axiom,
+    [++equal(least_upper_bound(X,Y),least_upper_bound(Y,X))]).
+
+input_clause(associativity_of_glb,axiom,
+    [++equal(greatest_lower_bound(X,greatest_lower_bound(Y,Z)),greatest_lower_bound(greatest_lower_bound(X,Y),Z))]).
+
+input_clause(associativity_of_lub,axiom,
+    [++equal(least_upper_bound(X,least_upper_bound(Y,Z)),least_upper_bound(least_upper_bound(X,Y),Z))]).
+
+input_clause(idempotence_of_lub,axiom,
+    [++equal(least_upper_bound(X,X),X)]).
+
+input_clause(idempotence_of_gld,axiom,
+    [++equal(greatest_lower_bound(X,X),X)]).
+
+input_clause(lub_absorbtion,axiom,
+    [++equal(least_upper_bound(X,greatest_lower_bound(X,Y)),X)]).
+
+input_clause(glb_absorbtion,axiom,
+    [++equal(greatest_lower_bound(X,least_upper_bound(X,Y)),X)]).
+
+input_clause(monotony_lub1,axiom,
+    [++equal(multiply(X,least_upper_bound(Y,Z)),least_upper_bound(multiply(X,Y),multiply(X,Z)))]).
+
+input_clause(monotony_glb1,axiom,
+    [++equal(multiply(X,greatest_lower_bound(Y,Z)),greatest_lower_bound(multiply(X,Y),multiply(X,Z)))]).
+
+input_clause(monotony_lub2,axiom,
+    [++equal(multiply(least_upper_bound(Y,Z),X),least_upper_bound(multiply(Y,X),multiply(Z,X)))]).
+
+input_clause(monotony_glb2,axiom,
+    [++equal(multiply(greatest_lower_bound(Y,Z),X),greatest_lower_bound(multiply(Y,X),multiply(Z,X)))]).
+
+input_clause(p12x_1,hypothesis,
+    [++equal(inverse(identity),identity)]).
+
+input_clause(p12x_2,hypothesis,
+    [++equal(inverse(inverse(X)),X)]).
+
+input_clause(p12x_3,hypothesis,
+    [++equal(inverse(multiply(X,Y)),multiply(inverse(Y),inverse(X)))]).
+
+input_clause(p12x_4,hypothesis,
+    [++equal(greatest_lower_bound(a,c),greatest_lower_bound(b,c))]).
+
+input_clause(p12x_5,hypothesis,
+    [++equal(least_upper_bound(a,c),least_upper_bound(b,c))]).
+
+input_clause(p12x_6,hypothesis,
+    [++equal(inverse(greatest_lower_bound(X,Y)),least_upper_bound(inverse(X),inverse(Y)))]).
+
+input_clause(p12x_7,hypothesis,
+    [++equal(inverse(least_upper_bound(X,Y)),greatest_lower_bound(inverse(X),inverse(Y)))]).
+
+input_clause(prove_p12x,conjecture,
+    [--equal(a,b)]).
+%------------------------------------------------------------------------------

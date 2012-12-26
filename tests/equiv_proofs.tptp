@@ -1,0 +1,83 @@
+input_clause(a,axiom,[ ++equal(
+trans(trans(X1,X2),X3) , trans(X1,trans(X2,X3))
+)]).
+
+input_clause(a,axiom,[ ++equal(
+trans(refl,X1) , X1
+)]).
+
+input_clause(a,axiom,[ ++equal(
+trans(X1,refl) , X1
+)]).
+
+input_clause(a,axiom,[ ++equal(
+congror1(refl) , refl
+)]).
+
+input_clause(a,axiom,[ ++equal(
+congror2(refl) , refl
+)]).
+
+# input_clause(a,axiom,[ ++equal(
+# congrand1(refl) , refl
+# )]).
+
+# input_clause(a,axiom,[ ++equal(
+# congrand2(refl) , refl
+# )]).
+
+input_clause(a,axiom,[ ++equal(
+trans(congror1(X1),ortrue2) , ortrue2
+)]).
+
+input_clause(a,axiom,[ ++equal(
+trans(congror2(X1),ortrue1) , ortrue1
+)]).
+
+# input_clause(a,axiom,[ ++equal(
+# trans(congrand1(X1),andfalse2) , andfalse2
+# )]).
+
+# input_clause(a,axiom,[ ++equal(
+# trans(congrand2(X1),andfalse1) , andfalse1
+# )]).
+
+input_clause(a,axiom,[ ++equal(
+trans(orfalse1,X1) , trans(congror2(X1),orfalse1)
+)]).
+
+input_clause(a,axiom,[ ++equal(
+trans(orfalse2,X1) , trans(congror1(X1),orfalse2)
+)]).
+
+# input_clause(a,axiom,[ ++equal(
+# trans(andtrue1,X1) , trans(congrand2(X1),andtrue1)
+# )]).
+
+# input_clause(a,axiom,[ ++equal(
+# trans(andtrue2,X1) , trans(congrand1(X1),andtrue2)
+# )]).
+
+input_clause(a,axiom,[ ++equal(
+trans(trans(congror1(X1),congror2(X2)), trans(congror1(X3),congror2(X4))) , trans(congror1(trans(X1,X3)), congror2(trans(X2,X4)))
+)]).
+
+# input_clause(a,axiom,[ ++equal(
+# trans(trans(congrand1(X1),congrand2(X2)), trans(congrand1(X3),congrand2(X4))) , trans(congrand1(trans(X1,X3)), congrand2(trans(X2,X4)))
+# )]).
+
+input_clause(a,axiom,[ ++equal(
+trans(ortrue1,X1) , ortrue1
+)]).
+
+input_clause(a,axiom,[ ++equal(
+trans(ortrue2,X1) , ortrue2
+)]).
+
+# input_clause(a,axiom,[ ++equal(
+# trans(andfalse1,X1) , andfalse1
+# )]).
+
+# input_clause(a,axiom,[ ++equal(
+# trans(andfalse2,X1) , andfalse2
+# )]).

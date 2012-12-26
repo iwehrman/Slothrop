@@ -1,0 +1,14 @@
+(COMMENT 
+  simple termination of SUBST, see TERESE book page 248
+)
+(VAR x y z)
+(RULES
+ a(lambda(x),y) -> lambda(a(x,p(1,a(y,t))))
+ a(p(x,y),z) -> p(a(x,z),a(y,z))
+ a(a(x,y),z) -> a(x,a(y,z))
+ lambda(x) -> x
+ a(x,y) -> x
+ a(x,y) -> y
+ p(x,y) -> x
+ p(x,y) -> y
+)

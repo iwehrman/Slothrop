@@ -1,0 +1,6 @@
+input_clause(comm,axiom, [
+  ++equal(times(X,Y), times(Y,X))
+]).
+
+
+

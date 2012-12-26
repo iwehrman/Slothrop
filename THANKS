@@ -1,0 +1,3 @@
+Stephan Falke <spf@cs.unm.edu> 
+ - Gave a test (tests/fgh.tptp) which tripped a completeness bug. 
+

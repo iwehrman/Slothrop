@@ -1,0 +1,22 @@
+input_clause(comm,axiom, [
+  ++equal(f(X,X,Y) , X) 
+]).
+
+input_clause(comm,axiom, [
+  ++equal( f(X,Y,Z) , f(Z,X,Y))
+]).
+
+input_clause(comm,axiom, [
+  ++equal( f(X,Y,Z) , f(X,Z,Y) )
+]).
+
+input_clause(comm,axiom, [
+  ++equal( f(f(X,W,Y),W,Z) , f(X,W,f(Y,W,Z))  )
+]).
+
+input_clause(comm,conjecture, [
+  ++equal( f(f(X,Y,Z),U,W) , f(f(X,U,W),f(Y,U,W),f(Z,U,W))  )
+]).
+
+
+

@@ -1,0 +1,26 @@
+NAME            FGH
+
+MODE            COMPLETION
+
+SORTS           ANY
+
+SIGNATURE       f: ANY -> ANY
+                g: ANY ANY -> ANY
+                h: ANY ANY -> ANY
+		a: -> ANY
+
+
+
+ORDERING        LPO
+
+
+                f > g > h > a
+
+VARIABLES       X,Y : ANY
+
+EQUATIONS       h(X, Y) = f(X)
+                h(X, Y) = f(Y)
+                g(X, Y) = h(X, Y)
+                g(X, Y) = a 
+
+CONCLUSION      f(a) = a 

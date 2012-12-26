@@ -1,0 +1,81 @@
+%------------------------------------------------------------------------------
+% File     : LAT038-1 : TPTP v3.2.0. Released v2.4.0.
+% Domain   : Lattice Theory
+% Problem  : Simplification rule in a distributive lattice
+% Version  : [McC88] (equality) axioms.
+% English  : In a distributive lattice, the following simplification rule 
+%            holds:
+%            forall a, b, c, d: 
+%                if   f(a v b, d) = f(c v b, d) and
+%                     f(a, d) & f(b, d) = f(c, d) & f(b, d)
+%                then f(a,d) = f(c,d).
+
+% Refs     : [DeN00] DeNivelle (2000), Email to G. Sutcliffe
+%            [McC88] McCune (1988), Challenge Equality Problems in Lattice
+% Source   : [DeN00]
+% Names    : lattice-hemi-simplif [DeN00]
+
+% Status   : Unsatisfiable
+% Rating   : 0.43 v3.1.0, 0.44 v2.7.0, 0.36 v2.6.0, 0.17 v2.5.0, 0.25 v2.4.0
+% Syntax   : Number of clauses     :   17 (   0 non-Horn;  17 unit;   3 RR)
+%            Number of atoms       :   17 (  17 equality)
+%            Maximal clause size   :    1 (   1 average)
+%            Number of predicates  :    1 (   0 propositional; 2-2 arity)
+%            Number of functors    :    8 (   5 constant; 0-2 arity)
+%            Number of variables   :   30 (   4 singleton)
+%            Maximal term depth    :    3 (   2 average)
+
+% Comments : 
+%          : tptp2X -f oldtptp LAT038-1.p 
+%------------------------------------------------------------------------------
+input_clause(idempotence_of_meet,axiom,
+    [++equal(meet(X,X),X)]).
+
+input_clause(idempotence_of_join,axiom,
+    [++equal(join(X,X),X)]).
+
+input_clause(absorption1,axiom,
+    [++equal(meet(X,join(X,Y)),X)]).
+
+input_clause(absorption2,axiom,
+    [++equal(join(X,meet(X,Y)),X)]).
+
+input_clause(commutativity_of_meet,axiom,
+    [++equal(meet(X,Y),meet(Y,X))]).
+
+input_clause(commutativity_of_join,axiom,
+    [++equal(join(X,Y),join(Y,X))]).
+
+input_clause(associativity_of_meet,axiom,
+    [++equal(meet(meet(X,Y),Z),meet(X,meet(Y,Z)))]).
+
+input_clause(associativity_of_join,axiom,
+    [++equal(join(join(X,Y),Z),join(X,join(Y,Z)))]).
+
+input_clause(dist_join,hypothesis,
+    [++equal(join(X,meet(Y,Z)),meet(join(X,Y),join(X,Z)))]).
+
+input_clause(dist_meet,hypothesis,
+    [++equal(meet(X,join(Y,Z)),join(meet(X,Y),meet(X,Z)))]).
+
+input_clause(f_on_left_join,axiom,
+    [++equal(f(join(U,V),W),join(f(U,W),f(V,W)))]).
+
+input_clause(f_on_left_bottom,axiom,
+    [++equal(f(n0,W),n0)]).
+
+input_clause(f_on_right_join,axiom,
+    [++equal(f(W,join(U,V)),join(f(W,U),f(W,V)))]).
+
+input_clause(f_on_right_bottom,axiom,
+    [++equal(f(W,n0),n0)]).
+
+input_clause(lhs1,hypothesis,
+    [++equal(f(join(aa,bb),dd),f(join(cc,bb),dd))]).
+
+input_clause(lhs2,hypothesis,
+    [++equal(meet(f(aa,dd),f(bb,dd)),meet(f(cc,dd),f(bb,dd)))]).
+
+input_clause(rhs,conjecture,
+    [--equal(f(aa,dd),f(cc,dd))]).
+%------------------------------------------------------------------------------

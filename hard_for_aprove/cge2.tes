@@ -1,0 +1,11 @@
+[Y,X,Z1,Z]
+trans(refl,X) -> X
+trans(symm(X),X) -> refl
+trans(f(X),f(Y)) -> f(trans(X,Y))
+trans(g(X),g(Y)) -> g(trans(X,Y))
+trans(f(X),g(Y)) -> trans(g(Y),f(X))
+trans(trans(X,Y),Z) -> trans(X,trans(Y,Z))
+trans(g(trans(X,Y)),Z1) -> trans(g(X),trans(g(Y),Z1))
+trans(f(X),trans(g(Y),Z1)) -> trans(g(Y),trans(f(X),Z1))
+trans(f(trans(X,Y)),Z1) -> trans(f(X),trans(f(Y),Z1))
+# MAYBE

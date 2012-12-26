@@ -1,0 +1,47 @@
+input_clause(a,axiom,[ ++equal(
+trans(trans(X,Y),Z) , trans(X,trans(Y,Z))
+)]).
+
+input_clause(a,axiom,[ ++equal(
+trans(refl,X) , X
+)]).
+
+input_clause(a,axiom,[ ++equal(
+trans(X,refl) , X
+)]).
+
+input_clause(a,axiom,[ ++equal(
+congror1(refl) , refl
+)]).
+
+input_clause(a,axiom,[ ++equal(
+congror2(refl) , refl
+)]).
+
+input_clause(a,axiom,[ ++equal(
+trans(congror1(X),ortrue2) , ortrue2
+)]).
+
+input_clause(a,axiom,[ ++equal(
+trans(congror2(X),ortrue1) , ortrue1
+)]).
+
+input_clause(a,axiom,[ ++equal(
+trans(congror2(X),orfalse1), trans(orfalse1,X) 
+)]).
+
+input_clause(a,axiom,[ ++equal(
+trans(congror1(X),orfalse2), trans(orfalse2,X)
+)]).
+
+input_clause(a,axiom,[ ++equal(
+trans(trans(congror1(X),congror2(Y)), trans(congror1(Z),congror2(W))) , trans(congror1(trans(X,Z)), congror2(trans(Y,W)))
+)]).
+
+input_clause(a,axiom,[ ++equal(
+trans(ortrue1,X) , ortrue1
+)]).
+
+input_clause(a,axiom,[ ++equal(
+trans(ortrue2,X) , ortrue2
+)]).

@@ -1,0 +1,25 @@
+NAME            Groups
+
+MODE            PROOF
+
+SORTS           ANY
+
+SIGNATURE       f: ANY ANY -> ANY
+                i: ANY -> ANY
+                e: -> ANY
+		a: -> ANY
+		b: -> ANY
+
+ORDERING        LPO
+
+
+                f > e > i > a > b
+
+VARIABLES       X,Y,Z : ANY
+
+EQUATIONS       f(X,e) = X
+                f(X,i(X)) = e
+                f(X,f(Y,Z)) = f(f(X,Y),Z)
+
+
+CONCLUSION      i(i(a)) = a

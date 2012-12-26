@@ -1,0 +1,33 @@
+[Z0,X6,X3,Y0,Z4,X0,Z1,X7,Y1,X4,Z2,X1,X2]
+f(i(Z1),i(Y1)) -> i(f(Y1,Z1))
+i(f(i(X2),Z1)) -> f(i(Z1),X2)
+f(Z1,i(f(Y1,Z1))) -> i(Y1)
+f(f(X3,i(X0)),X0) -> X3
+i(e) -> e
+f(f(X1,X0),i(X0)) -> X1
+f(X0,f(Y0,Z0)) -> f(f(X0,Y0),Z0)
+f(h(X0),h(Y0)) -> h(f(X0,Y0))
+f(X0,i(X0)) -> e
+f(X0,e) -> X0
+f(e,X0) -> X0
+i(i(X0)) -> X0
+f(i(X0),X0) -> e
+f(i(f(Y1,Z1)),Y1) -> i(Z1)
+i(f(X3,i(X0))) -> f(X0,i(X3))
+i(h(X0)) -> h(i(X0))
+h(e) -> e
+f(h(X3),i(h(X0))) -> h(f(X3,i(X0)))
+f(i(h(X0)),h(f(X0,Y0))) -> h(Y0)
+f(i(f(f(X0,Y0),Z0)),X0) -> i(f(Y0,Z0))
+f(i(h(f(X0,Y0))),h(X0)) -> h(i(Y0))
+i(f(X4,h(i(X0)))) -> f(h(X0),i(X4))
+i(f(f(i(Z1),X2),Z4)) -> f(i(f(X2,Z4)),Z1)
+f(f(X1,h(f(X0,Y0))),i(h(Y0))) -> f(X1,h(X0))
+f(f(X3,i(X0)),i(X7)) -> f(X3,i(f(X7,X0)))
+f(f(X1,h(X0)),h(Y0)) -> f(X1,h(f(X0,Y0)))
+f(f(X2,Z1),i(f(Y1,Z1))) -> f(X2,i(Y1))
+f(f(i(X2),Z1),i(X6)) -> i(f(f(X6,i(Z1)),X2))
+f(f(X2,i(f(Y1,Z1))),Y1) -> f(X2,i(Z1))
+f(i(Z2),h(X0)) -> i(f(h(i(X0)),Z2))
+
+# 

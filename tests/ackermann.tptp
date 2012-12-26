@@ -1,0 +1,13 @@
+input_clause(assoc,axiom,
+  [ ++equal(a(z,X), s(X)) 
+  ]).
+
+input_clause(inv, axiom,
+  [ ++equal(a(s(X),z), a(X,s(z)))
+  ]).
+
+input_clause(id,axiom,
+  [ ++equal(a(s(X),s(Y)), a(X,a(s(X),Y)))
+  ]).
+
+
